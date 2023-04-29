@@ -12,14 +12,12 @@ const getDatabaseConnection = async (): Promise<EntityManager> => {
     datasource = new DataSource({
       applicationName: 'employee-service',
       type: 'postgres',
-      host: 'horton.db.elephantsql.com',
-      // port: +process.env.DBPORT,
-      // 5432
-      database: 'spnxahcr',
-      username: 'spnxahcr',
-      password: 'KKs1CaKvdRwrPpVJt5md3diRP2G4pmg5',
-      schema: 'public',
-      //'public'
+      host: process.env.DBHOSTNAME,
+      port: +process.env.DBPORT,
+      database: process.env.DBNAME,
+      username: process.env.DBUSERNAME,
+      password: process.env.DBPASSWORD,
+      schema: process.env.DBSCHEMA,
       connectTimeoutMS: 30000,
       synchronize: true,
       logging: false,
